@@ -4,5 +4,9 @@
   (add-to-list 'package-archives source t))
 (package-initialize)
 
-(tool-bar-mode -1)
-(setq apropos-sort-by-scores t)
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(dolist (pkg '(better-defaults))
+  (unless (package-installed-p pkg)
+    (package-install pkg)))
