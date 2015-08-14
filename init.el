@@ -7,6 +7,6 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
-(dolist (pkg '(better-defaults))
+(dolist (pkg '(better-defaults paredit magit))
   (unless (package-installed-p pkg)
     (package-install pkg)))
