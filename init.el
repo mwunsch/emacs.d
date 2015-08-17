@@ -7,6 +7,13 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
-(dolist (pkg '(better-defaults paredit magit))
+(dolist (pkg '(better-defaults
+               exec-path-from-shell
+               paredit
+               magit))
   (unless (package-installed-p pkg)
     (package-install pkg)))
+
+; TODO: Research global-magit-file-buffer-mode
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
