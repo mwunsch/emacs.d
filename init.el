@@ -14,6 +14,17 @@
   (unless (package-installed-p pkg)
     (package-install pkg)))
 
-; TODO: Research global-magit-file-buffer-mode
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+;; Set-up $PATH and other ENV vars from bashrc
+(when (eq window-system 'ns)
+  (exec-path-from-shell-initialize))
+
+;; Set up keybindings in file-visiting buffers for magit
+;;   C-x g    'magit-status
+;;   C-c M-g  'magit-file-buffer-popup
+;;   C-x M-g  'magit-dispatch-popup
+(global-magit-file-buffer-mode 1)
+
+;; Mappings so that ⌘-+, ⌘--, ⌘-0 adjust font size like other Mac apps.
+;; The 'text-scale-adjust function knows what to do.
+(dolist (key '("s-0" "s-=" "s-+" "s--"))
+  (global-set-key (kbd key) 'text-scale-adjust))
