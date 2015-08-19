@@ -10,6 +10,8 @@
 (dolist (pkg '(better-defaults
                exec-path-from-shell
                paredit
+               clojure-mode
+               ace-window
                magit))
   (unless (package-installed-p pkg)
     (package-install pkg)))
@@ -28,3 +30,5 @@
 ;; The 'text-scale-adjust function knows what to do.
 (dolist (key '("s-0" "s-=" "s-+" "s--"))
   (global-set-key (kbd key) 'text-scale-adjust))
+
+(global-set-key (kbd "M-p") 'ace-window)
