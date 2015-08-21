@@ -11,8 +11,10 @@
                exec-path-from-shell
                paredit
                clojure-mode
+               cider
                ace-window
-               magit))
+               magit
+               evil))
   (unless (package-installed-p pkg)
     (package-install pkg)))
 
