@@ -2,7 +2,8 @@
 .\#*
 *~
 auto-save-list
-/elpa/
+elpa
 ido.last
 backups
 places
+eshell
