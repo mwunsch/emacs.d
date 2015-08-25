@@ -13,6 +13,7 @@
                clojure-mode
                cider
                ace-window
+               projectile
                magit
                evil))
   (unless (package-installed-p pkg)
@@ -28,6 +29,7 @@
   (global-set-key (kbd key) 'text-scale-adjust))
 
 (global-set-key (kbd "M-p") 'ace-window)
+(projectile-global-mode)
 
 ;; Set up keybindings in file-visiting buffers for magit
 ;;   C-x g    'magit-status
