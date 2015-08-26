@@ -14,6 +14,7 @@
                cider
                ace-window
                projectile
+               company
                magit
                evil))
   (unless (package-installed-p pkg)
@@ -29,6 +30,8 @@
   (global-set-key (kbd key) 'text-scale-adjust))
 
 (global-set-key (kbd "M-p") 'ace-window)
+
+(global-prettify-symbols-mode t)
 (projectile-global-mode)
 
 ;; Set up keybindings in file-visiting buffers for magit
@@ -36,6 +39,10 @@
 ;;   C-c M-g  'magit-file-buffer-popup
 ;;   C-x M-g  'magit-dispatch-popup
 (global-magit-file-buffer-mode 1)
+
+;; Set company mode so that it is invoked on TAB.
+(setq company-idle-delay nil)
+(global-set-key (kbd "TAB") #'company-indent-or-complete-common)
 
 (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'paredit-mode)
