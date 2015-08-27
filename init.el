@@ -14,6 +14,8 @@
                cider
                ace-window
                projectile
+               flx-ido
+               ido-vertical-mode
                company
                magit
                evil))
@@ -43,6 +45,9 @@
 ;; Set company mode so that it is invoked on TAB.
 (setq company-idle-delay nil)
 (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
+
+(flx-ido-mode 1)
+(ido-vertical-mode 1)
 
 (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'paredit-mode)
