@@ -17,6 +17,8 @@
                flx-ido
                ido-vertical-mode
                company
+               anzu
+               flycheck
                magit
                evil))
   (unless (package-installed-p pkg)
@@ -48,6 +50,7 @@
 
 (flx-ido-mode 1)
 (ido-vertical-mode 1)
+(global-anzu-mode 1)
 
 (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'paredit-mode)
