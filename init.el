@@ -11,6 +11,7 @@
                exec-path-from-shell
                paredit
                clojure-mode
+               markdown-mode
                cider
                ace-window
                projectile
