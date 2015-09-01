@@ -1,0 +1,33 @@
+These are my emacs customizations. I am in the process of learning and using emacs as my primary text editor (amongst all the other things that emacs seems to do for you).
+
+Below is my process for learning emacs and the methodology behind my choices:
+
++ First, do the emacs tutorial (C-h t)
++ Purchase and Read Mickey Petersen's excellent Mastering Emacs text (https://www.masteringemacs.org/)
++ Follow the recommendations of technomancy's Emacs Starter Kit (https://github.com/technomancy/emacs-starter-kit) and start with the easy-peasy Better Default's package (https://github.com/technomancy/better-defaults)
++ Read through the source code for drop-in emacs configs like Prelude (https://github.com/bbatsov/prelude) and Ohai-Emacs (https://github.com/bodil/ohai-emacs)
++ Check out these folks' emacs.d's:
+  + https://github.com/flyingmachine/emacs.d
+  + https://github.com/bodil/emacs.d
+  + https://github.com/magnars/.emacs.d
+  + https://github.com/howardabrams/dot-files (Howard uses Literate Programming in Org-mode. Awesome)
+
+The important thing to understand is that learning Emacs isn't just learning the particulars of a text editor. Learning Emacs means learning a framework written in Emacs Lisp that is all about taking actions on buffers of text. Learning the Emacs basics are important, but that only scratches the surface of the different interaction modes. Here are some that I'm trying to work into my daily life:
+
++ http://orgmode.org/
++ http://company-mode.github.io/
++ https://github.com/clojure-emacs/cider
++ https://github.com/bbatsov/projectile
++ http://magit.vc/
+
+The key is to keep `C-h a` (pattern-matching help) and `C-h m` close at hand. C-h everything!
+
+I'm ignoring a lot of the Customization parts and am just using the default theme, so my emacs is probably uglier than most.
+
+Here are some more resources:
+
++ https://github.com/chrisdone/elisp-guide
++ http://emacslife.com/
++ http://planet.emacsen.org/
+
+Eventually, I'll get the hang of it.
