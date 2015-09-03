@@ -7,21 +7,22 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
-(dolist (pkg '(better-defaults
-               exec-path-from-shell
-               paredit
-               clojure-mode
-               markdown-mode
-               cider
-               ace-window
-               projectile
-               flx-ido
-               ido-vertical-mode
-               company
+(dolist (pkg '(ace-window
+               ag
                anzu
+               better-defaults
+               cider
+               clojure-mode
+               company
+               evil
+               exec-path-from-shell
+               flx-ido
                flycheck
+               ido-vertical-mode
                magit
-               evil))
+               markdown-mode
+               paredit
+               projectile))
   (unless (package-installed-p pkg)
     (package-install pkg)))
 
@@ -54,5 +55,9 @@
 (dolist (key '("s-0" "s-=" "s-+" "s--"))
   (global-set-key (kbd key) 'text-scale-adjust))
 
+(define-key projectile-mode-map (kbd "s-p") 'projectile-find-file)
+
 (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'paredit-mode)
+(add-hook 'prog-mode-hook #'linum-mode)
+(add-hook 'before-save-hook #'delete-trailing-whitespace)
