@@ -1,5 +1,6 @@
 These are my emacs customizations. I am in the process of learning and using emacs as my primary text editor (amongst all the other things that emacs seems to do for you).
 
+I recently chose to use the "Mac Port" of emacs (recommended by Spacemacs): https://github.com/railwaycat/homebrew-emacsmacport
 Below is my process for learning emacs and the methodology behind my choices:
 
 + First, do the emacs tutorial (C-h t)
