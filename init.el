@@ -22,7 +22,8 @@
                magit
                markdown-mode
                paredit
-               projectile))
+               projectile
+               web-mode))
   (unless (package-installed-p pkg)
     (package-install pkg)))
 
@@ -61,6 +62,9 @@
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'prog-mode-hook #'linum-mode)
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
+
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
