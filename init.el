@@ -14,15 +14,18 @@
                cider
                clojure-mode
                company
+               elixir-mode
                evil
                exec-path-from-shell
                flx-ido
                flycheck
+               haskell-mode
                ido-vertical-mode
                magit
                markdown-mode
                paredit
                projectile
+               racket-mode
                web-mode))
   (unless (package-installed-p pkg)
     (package-install pkg)))
