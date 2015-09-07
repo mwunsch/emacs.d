@@ -45,6 +45,10 @@
 (global-magit-file-buffer-mode 1)
 (delete-selection-mode t)
 
+(when (eq window-system 'mac)
+  (setq mac-command-modifier 'super)
+  (setq mac-option-modifier 'meta))
+
 ;; Set company mode so that it is invoked on TAB.
 (setq company-idle-delay nil)
 (setq require-final-newline t)
@@ -65,17 +69,3 @@
 
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(mac-command-modifier (quote super))
- '(mac-option-modifier (quote meta)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
