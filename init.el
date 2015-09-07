@@ -40,7 +40,7 @@
 (flx-ido-mode 1)
 (ido-vertical-mode 1)
 (global-anzu-mode 1)
-(global-auto-revert-mode t)
+(global-auto-revert-mode 1)
 ;; Set up keybindings in file-visiting buffers for magit
 ;;   C-x g    'magit-status
 ;;   C-c M-g  'magit-file-buffer-popup
