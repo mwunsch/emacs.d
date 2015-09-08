@@ -36,6 +36,7 @@
 (when (eq window-system 'ns)
   (exec-path-from-shell-initialize))
 
+(smex-initialize)
 (global-prettify-symbols-mode t)
 (projectile-global-mode)
 (global-company-mode t)
@@ -61,6 +62,10 @@
 
 (global-set-key (kbd "M-p") 'ace-window)
 (global-set-key (kbd "TAB") 'company-indent-or-complete-common)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
 ;; Mappings so that ⌘-+, ⌘--, ⌘-0 adjust font size like other Mac apps.
 ;; The 'text-scale-adjust function knows what to do.
 (dolist (key '("s-0" "s-=" "s-+" "s--"))
