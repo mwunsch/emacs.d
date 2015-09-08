@@ -20,12 +20,14 @@
                flx-ido
                flycheck
                haskell-mode
+               ido-ubiquitous
                ido-vertical-mode
                magit
                markdown-mode
                paredit
                projectile
                racket-mode
+               smex
                web-mode))
   (unless (package-installed-p pkg)
     (package-install pkg)))
@@ -37,6 +39,7 @@
 (global-prettify-symbols-mode t)
 (projectile-global-mode)
 (global-company-mode t)
+(ido-ubiquitous-mode 1)
 (flx-ido-mode 1)
 (ido-vertical-mode 1)
 (global-anzu-mode 1)
