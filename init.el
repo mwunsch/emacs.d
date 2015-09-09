@@ -27,6 +27,7 @@
                paredit
                projectile
                racket-mode
+               scss-mode
                smex
                web-mode))
   (unless (package-installed-p pkg)
@@ -59,6 +60,7 @@
 ;; Set company mode so that it is invoked on TAB.
 (setq company-idle-delay nil)
 (setq require-final-newline t)
+(setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
 
 (global-set-key (kbd "M-p") 'ace-window)
 (global-set-key (kbd "TAB") 'company-indent-or-complete-common)
