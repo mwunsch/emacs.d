@@ -78,6 +78,7 @@
 (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'prog-mode-hook #'linum-mode)
+(add-hook 'css-mode-hook #'linum-mode)
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
