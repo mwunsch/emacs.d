@@ -29,6 +29,7 @@
                racket-mode
                scss-mode
                smex
+               solarized-theme
                web-mode))
   (unless (package-installed-p pkg)
     (package-install pkg)))
