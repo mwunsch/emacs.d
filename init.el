@@ -10,6 +10,7 @@
 (dolist (pkg '(ace-window
                ag
                anzu
+               aurora-theme
                better-defaults
                cider
                clojure-mode
