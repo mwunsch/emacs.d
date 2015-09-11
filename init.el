@@ -20,6 +20,7 @@
                exec-path-from-shell
                flx-ido
                flycheck
+               gist
                haskell-mode
                ido-ubiquitous
                ido-vertical-mode
