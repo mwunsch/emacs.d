@@ -44,7 +44,6 @@
 
 (smex-initialize)
 (global-prettify-symbols-mode t)
-(projectile-global-mode)
 (global-company-mode t)
 (ido-ubiquitous-mode 1)
 (flx-ido-mode 1)
@@ -57,6 +56,7 @@
 ;;   C-x M-g  'magit-dispatch-popup
 (global-magit-file-mode 1)
 (delete-selection-mode t)
+(projectile-global-mode)
 
 (when (eq window-system 'mac)
   (setq mac-command-modifier 'super)
