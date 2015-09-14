@@ -55,7 +55,7 @@
 ;;   C-x g    'magit-status
 ;;   C-c M-g  'magit-file-buffer-popup
 ;;   C-x M-g  'magit-dispatch-popup
-(global-magit-file-buffer-mode 1)
+(global-magit-file-mode 1)
 (delete-selection-mode t)
 
 (when (eq window-system 'mac)
@@ -72,6 +72,7 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+(global-set-key (kbd "M-TAB") 'company-complete)
 
 ;; Mappings so that ⌘-+, ⌘--, ⌘-0 adjust font size like other Mac apps.
 ;; The 'text-scale-adjust function knows what to do.
