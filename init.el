@@ -24,6 +24,7 @@
                haskell-mode
                ido-ubiquitous
                ido-vertical-mode
+               inf-ruby
                magit
                markdown-mode
                paredit
@@ -32,7 +33,8 @@
                scss-mode
                smex
                solarized-theme
-               web-mode))
+               web-mode
+               yari))
   (unless (package-installed-p pkg)
     (package-install pkg)))
 
