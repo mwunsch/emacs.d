@@ -89,3 +89,17 @@
 
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+
+(setq solarized-distinct-fringe-background t)
+(setq solarized-high-contrast-mode-line t)
+(setq solarized-use-more-italic t)
+
+(defun mw-theme-light ()
+  (interactive)
+  (load-theme 'solarized-light t))
+
+(defun mw-theme-dark ()
+  (interactive)
+  (load-theme 'solarized-dark t))
+
+(mw-theme-light)
