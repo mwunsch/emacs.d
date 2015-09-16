@@ -50,10 +50,6 @@
 (ido-vertical-mode 1)
 (global-anzu-mode 1)
 (global-auto-revert-mode 1)
-;; Set up keybindings in file-visiting buffers for magit
-;;   C-x g    'magit-status
-;;   C-c M-g  'magit-file-buffer-popup
-;;   C-x M-g  'magit-dispatch-popup
 (global-magit-file-mode 1)
 (delete-selection-mode t)
 (projectile-global-mode)
