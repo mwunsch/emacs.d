@@ -63,6 +63,8 @@
 (setq require-final-newline t)
 (setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
 
+(defalias 'yes-or-no-p 'y-or-n-p)       ; I really just want this behavior for compilation buffers; learn more about `advice-add
+
 (global-set-key (kbd "M-p") 'ace-window)
 (global-set-key (kbd "TAB") 'company-indent-or-complete-common)
 (global-set-key (kbd "M-x") 'smex)
