@@ -88,7 +88,8 @@
 (add-hook 'css-mode-hook #'linum-mode)
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 (add-hook 'compilation-filter-hook (lambda ()
-                                     (ansi-color-apply-on-region compilation-filter-start (point-max))))
+                                     (ansi-color-apply-on-region compilation-filter-start
+                                                                 (point-max))))
 
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
