@@ -62,6 +62,9 @@
 (setq company-idle-delay nil)
 (setq require-final-newline t)
 (setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
+(setq ediff-split-window-function (if (> (frame-width) 150)
+                                      'split-window-horizontally
+                                    'split-window-vertically))
 
 (advice-add 'recompile :around (lambda (oldfun &rest r)
                                  ;; Change recompile prompts to y-or-n
