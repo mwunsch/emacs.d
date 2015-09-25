@@ -112,4 +112,11 @@
   (interactive)
   (load-theme 'solarized-dark t))
 
+(if (fboundp 'mac-do-applescript)
+    (defun mac-notify (title text)
+      "Use the OS X notification mechanism" ; Baby's first elisp
+      (mac-do-applescript (concat "display notification \""
+                                  text "\" with title \""
+                                  title "\""))))
+
 (mw-theme-light)
