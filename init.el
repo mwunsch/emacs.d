@@ -14,6 +14,7 @@
                better-defaults
                cider
                clojure-mode
+               coffee-mode
                company
                elixir-mode
                evil
@@ -68,6 +69,7 @@
 (setq ediff-split-window-function (if (> (frame-width) 150)
                                       'split-window-horizontally
                                     'split-window-vertically))
+(setq coffee-tab-width 2)
 
 (advice-add 'recompile :around (lambda (oldfun &rest r)
                                  ;; Change recompile prompts to y-or-n
@@ -112,11 +114,10 @@
   (interactive)
   (load-theme 'solarized-dark t))
 
-(if (fboundp 'mac-do-applescript)
-    (defun mac-notify (title text)
-      "Use the OS X notification mechanism" ; Baby's first elisp
-      (mac-do-applescript (concat "display notification \""
-                                  text "\" with title \""
-                                  title "\""))))
-
 (mw-theme-light)
+
+(when (fboundp 'mac-do-applescript)
+    (defun osx-notify (title text)
+      "Use the OS X notification mechanism"
+      (mac-do-applescript (format
+                           "display notification %S with title %S" text title))))
