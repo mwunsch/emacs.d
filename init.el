@@ -121,3 +121,12 @@
       "Use the OS X notification mechanism"
       (mac-do-applescript (format
                            "display notification %S with title %S" text title))))
+
+;;; Like erc notifications mode, but for OSX.
+;;; Moving this function here as I debug it in scratch. The short story is that msg is complex and
+;;; needs special handling before being pushed into osx-notify
+;; (when (fboundp 'osx-notify)
+;;   (add-hook 'erc-text-matched-hook (lambda (match-type nickuserhost msg)
+;;                                      (when (eq match-type 'current-nick)
+;;                                        (let ((nick (nth 0 (erc-parse-user nickuserhost))))
+;;                                          (osx-notify nick msg))))))
