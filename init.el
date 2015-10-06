@@ -72,14 +72,13 @@
 (setq coffee-tab-width 2)
 
 ;;; I send mail with fastmail.fm!
+;;; http://www.fastmail.fm/?STKI=12014933
 (setq user-mail-address "mark@markwunsch.com")
 (setq send-mail-function 'smtpmail-send-it
       message-send-mail-function 'message-smtpmail-send-it
       smtpmail-smtp-server "mail.messagingengine.com"
       smtpmail-stream-type 'tls
       smtpmail-smtp-service 465)
-;; (setq smtpmail-debug-info nil
-;;       smtpmail-debug-verb nil)
 
 (advice-add 'recompile :around (lambda (oldfun &rest r)
                                  ;; Change recompile prompts to y-or-n
