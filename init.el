@@ -40,7 +40,7 @@
     (package-install pkg)))
 
 ;; Set-up $PATH and other ENV vars from bashrc
-(when (eq window-system 'ns)
+(when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
 (smex-initialize)
