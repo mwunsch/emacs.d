@@ -104,6 +104,8 @@
 (add-hook 'prog-mode-hook #'linum-mode)
 (add-hook 'css-mode-hook #'linum-mode)
 (add-hook 'markdown-mode-hook #'auto-fill-mode)
+(add-hook 'markdown-mode-hook #'abbrev-mode)
+(add-hook 'erc-mode-hook #'abbrev-mode)
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 (add-hook 'compilation-filter-hook (lambda ()
                                      (ansi-color-apply-on-region compilation-filter-start
