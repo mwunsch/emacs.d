@@ -70,6 +70,7 @@
                                       'split-window-horizontally
                                     'split-window-vertically))
 (setq coffee-tab-width 2)
+(setq cider-repl-tab-command 'company-indent-or-complete-common)
 
 ;;; I send mail with fastmail.fm!
 ;;; http://www.fastmail.fm/?STKI=12014933
