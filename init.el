@@ -102,6 +102,7 @@
 
 (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'paredit-mode)
+(add-hook 'cider-repl-mode-hook #'paredit-mode)
 (add-hook 'prog-mode-hook #'linum-mode)
 (add-hook 'css-mode-hook #'linum-mode)
 (add-hook 'markdown-mode-hook #'auto-fill-mode)
