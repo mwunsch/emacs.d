@@ -35,7 +35,8 @@
                smex
                solarized-theme
                web-mode
-               yari))
+               yari
+               yasnippet))
   (unless (package-installed-p pkg)
     (package-install pkg)))
 
@@ -54,6 +55,7 @@
 (global-magit-file-mode 1)
 (delete-selection-mode t)
 (projectile-global-mode)
+(yas-global-mode 1)
 
 (when (eq window-system 'mac)
   (setq mac-command-modifier 'super)
