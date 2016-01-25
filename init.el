@@ -17,6 +17,7 @@
                coffee-mode
                company
                elixir-mode
+               elm-mode
                evil
                exec-path-from-shell
                flx-ido
@@ -29,6 +30,7 @@
                magit
                markdown-mode
                paredit
+               processing-mode
                projectile
                racket-mode
                scss-mode
