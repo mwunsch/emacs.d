@@ -75,7 +75,6 @@
                                     'split-window-vertically))
 (setq coffee-tab-width 2)
 (setq cider-repl-tab-command 'company-indent-or-complete-common)
-(setq cider-repl-use-pretty-printing t)
 (setq css-indent-offset 2)
 
 ;;; I send mail with fastmail.fm!
