@@ -27,6 +27,7 @@
                ido-ubiquitous
                ido-vertical-mode
                inf-ruby
+               js2-mode
                magit
                markdown-mode
                paredit
@@ -76,6 +77,7 @@
 (setq coffee-tab-width 2)
 (setq cider-repl-tab-command 'company-indent-or-complete-common)
 (setq css-indent-offset 2)
+(setq js2-basic-offset 2)
 
 ;;; I send mail with fastmail.fm!
 ;;; http://www.fastmail.fm/?STKI=12014933
@@ -113,12 +115,18 @@
 (add-hook 'markdown-mode-hook #'abbrev-mode)
 (add-hook 'erc-mode-hook #'abbrev-mode)
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
+(add-hook 'web-mode-hook (lambda ()
+                           (setq web-mode-markup-indent-offset 2)
+                           (setq web-mode-code-indent-offset 2)
+                           (setq web-mode-css-indent-offset 2)))
 (add-hook 'compilation-filter-hook (lambda ()
                                      (ansi-color-apply-on-region compilation-filter-start
                                                                  (point-max))))
 
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
 
 (setq solarized-distinct-fringe-background t)
 (setq solarized-high-contrast-mode-line t)
