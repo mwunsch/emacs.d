@@ -79,6 +79,9 @@
 (setq css-indent-offset 2)
 (setq js2-basic-offset 2)
 
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
 ;;; I send mail with fastmail.fm!
 ;;; http://www.fastmail.fm/?STKI=12014933
 (setq user-mail-address "mark@markwunsch.com")
