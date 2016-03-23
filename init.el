@@ -78,6 +78,7 @@
 (setq cider-repl-tab-command 'company-indent-or-complete-common)
 (setq css-indent-offset 2)
 (setq js2-basic-offset 2)
+(setq js2-bounce-indent-p t)
 
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
