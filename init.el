@@ -77,11 +77,11 @@
 (setq coffee-tab-width 2)
 (setq cider-repl-tab-command 'company-indent-or-complete-common)
 (setq css-indent-offset 2)
+(setq js-indent-level 2)
 (setq js2-basic-offset 2)
 (setq js2-bounce-indent-p t)
 
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
+(setq create-lockfiles nil)
 
 ;;; I send mail with fastmail.fm!
 ;;; http://www.fastmail.fm/?STKI=12014933
@@ -127,7 +127,6 @@
                                      (ansi-color-apply-on-region compilation-filter-start
                                                                  (point-max))))
 
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
