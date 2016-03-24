@@ -16,6 +16,7 @@
                clojure-mode
                coffee-mode
                company
+               discover-my-major
                elixir-mode
                elm-mode
                evil
@@ -103,6 +104,8 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 (global-set-key (kbd "M-TAB") 'company-complete)
+(global-set-key (kbd "C-h C-m") 'discover-my-major)
+(global-set-key (kbd "C-h M-m") 'discover-my-mode)
 
 ;; Mappings so that ⌘-+, ⌘--, ⌘-0 adjust font size like other Mac apps.
 ;; The 'text-scale-adjust function knows what to do.
