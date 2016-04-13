@@ -25,6 +25,7 @@
                flycheck
                gist
                haskell-mode
+               hcl-mode
                ido-ubiquitous
                ido-vertical-mode
                inf-ruby
@@ -133,6 +134,7 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("Appfile\\'" . hcl-mode))
 
 (setq solarized-distinct-fringe-background t)
 (setq solarized-high-contrast-mode-line t)
