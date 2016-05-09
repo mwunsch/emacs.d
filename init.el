@@ -94,6 +94,13 @@
       smtpmail-stream-type 'tls
       smtpmail-smtp-service 465)
 
+;;; ERC Configuration
+(setq erc-autojoin-channels-alist '(("freenode.net" "#icymi")))
+(setq erc-nick "mwunsch")
+(setq erc-quit-reason (lambda (s)
+                        ;; Waving Hand Sign + Emoji Modifier Fitzpatrick Type 3
+                        (or s "\x1f44b\x1f3fc")))
+
 (advice-add 'recompile :around (lambda (oldfun &rest r)
                                  ;; Change recompile prompts to y-or-n
                                  (letf (((symbol-function 'yes-or-no-p) #'y-or-n-p))
