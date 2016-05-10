@@ -17,6 +17,7 @@
                coffee-mode
                company
                discover-my-major
+               editorconfig
                elixir-mode
                elm-mode
                evil
@@ -61,6 +62,7 @@
 (delete-selection-mode t)
 (projectile-global-mode)
 (yas-global-mode 1)
+(editorconfig-mode 1)
 
 (when (eq window-system 'mac)
   (setq mac-command-modifier 'super)
