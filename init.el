@@ -145,6 +145,11 @@
 (add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("Appfile\\'" . hcl-mode))
 
+(put 'css-indent-offset 'safe-local-variable #'integerp)
+(put 'sgml-basic-offset 'safe-local-variable #'integerp)
+(put 'js-indent-level 'safe-local-variable #'integerp)
+(put 'whitespace-line-column 'safe-local-variable #'integerp)
+
 (setq solarized-distinct-fringe-background t)
 (setq solarized-high-contrast-mode-line t)
 (setq solarized-use-more-italic t)
