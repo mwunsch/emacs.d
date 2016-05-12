@@ -20,6 +20,7 @@
                editorconfig
                elixir-mode
                elm-mode
+               ensime
                evil
                exec-path-from-shell
                flx-ido
@@ -132,6 +133,7 @@
 (add-hook 'markdown-mode-hook #'abbrev-mode)
 (add-hook 'erc-mode-hook #'abbrev-mode)
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
+(add-hook 'scala-mode-hook #'ensime-mode)
 (add-hook 'web-mode-hook (lambda ()
                            (setq web-mode-markup-indent-offset 2)
                            (setq web-mode-code-indent-offset 2)
