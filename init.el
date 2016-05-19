@@ -32,6 +32,7 @@
                ido-vertical-mode
                inf-ruby
                js2-mode
+               json-mode
                magit
                markdown-mode
                paredit
