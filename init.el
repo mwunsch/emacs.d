@@ -43,6 +43,7 @@
                smex
                solarized-theme
                web-mode
+               yaml-mode
                yari
                yasnippet))
   (unless (package-installed-p pkg)
