@@ -87,6 +87,7 @@
 (setq js-indent-level 2)
 (setq js2-basic-offset 2)
 (setq js2-bounce-indent-p t)
+(setq elm-tags-on-save t)
 
 (setq create-lockfiles nil)
 
@@ -148,6 +149,8 @@
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("Appfile\\'" . hcl-mode))
+
+(add-to-list 'company-backends 'company-elm)
 
 (put 'css-indent-offset 'safe-local-variable #'integerp)
 (put 'sgml-basic-offset 'safe-local-variable #'integerp)
