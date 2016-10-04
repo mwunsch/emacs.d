@@ -137,6 +137,8 @@
 (add-hook 'erc-mode-hook #'abbrev-mode)
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 (add-hook 'scala-mode-hook #'ensime-mode)
+(add-hook 'elm-mode-hook (lambda ()
+                           (push '("->" . ?→) prettify-symbols-alist)))
 (add-hook 'web-mode-hook (lambda ()
                            (setq web-mode-markup-indent-offset 2)
                            (setq web-mode-code-indent-offset 2)
