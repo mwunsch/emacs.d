@@ -16,6 +16,7 @@
                clojure-mode
                coffee-mode
                company
+               csv-mode
                discover-my-major
                editorconfig
                elixir-mode
