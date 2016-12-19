@@ -40,6 +40,7 @@
                processing-mode
                projectile
                racket-mode
+               restart-emacs
                scss-mode
                smex
                solarized-theme
