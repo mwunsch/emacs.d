@@ -145,7 +145,8 @@
                            (setq web-mode-markup-indent-offset 2)
                            (setq web-mode-code-indent-offset 2)
                            (setq web-mode-css-indent-offset 2)
-                           (setq web-mode-script-padding 0)))
+                           (setq web-mode-script-padding 0)
+                           (setq web-mode-style-padding 0)))
 (add-hook 'compilation-filter-hook (lambda ()
                                      (ansi-color-apply-on-region compilation-filter-start
                                                                  (point-max))))
