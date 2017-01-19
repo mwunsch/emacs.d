@@ -92,6 +92,7 @@
 (setq elm-tags-on-save t)
 
 (setq create-lockfiles nil)
+(setq ispell-program-name "aspell")
 
 ;;; I send mail with fastmail.fm!
 ;;; http://www.fastmail.fm/?STKI=12014933
@@ -108,6 +109,8 @@
 (setq erc-quit-reason (lambda (s)
                         ;; Waving Hand Sign + Emoji Modifier Fitzpatrick Type 3
                         (or s "\x1f44b\x1f3fc")))
+(when (executable-find ispell-program-name)
+  (erc-spelling-mode 1))
 
 (advice-add 'recompile :around (lambda (oldfun &rest r)
                                  ;; Change recompile prompts to y-or-n
@@ -136,6 +139,7 @@
 (add-hook 'css-mode-hook #'linum-mode)
 (add-hook 'markdown-mode-hook #'auto-fill-mode)
 (add-hook 'markdown-mode-hook #'abbrev-mode)
+(add-hook 'markdown-mode-hook #'flyspell-mode)
 (add-hook 'erc-mode-hook #'abbrev-mode)
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 (add-hook 'scala-mode-hook #'ensime-mode)
