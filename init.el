@@ -1,5 +1,5 @@
 (require 'package)
-(dolist (source '(("melpa" . "http://melpa.org/packages/")
+(dolist (source '(("melpa" . "https://melpa.org/packages/")
                   ("marmalade" . "https://marmalade-repo.org/packages/")))
   (add-to-list 'package-archives source t))
 (package-initialize)
@@ -10,7 +10,6 @@
 (dolist (pkg '(ace-window
                ag
                anzu
-               aurora-theme
                better-defaults
                cider
                clojure-mode
