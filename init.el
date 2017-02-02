@@ -7,48 +7,47 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
-(dolist (pkg '(ace-window
-               ag
-               anzu
-               better-defaults
-               cider
-               clojure-mode
-               coffee-mode
-               company
-               csv-mode
-               discover-my-major
-               editorconfig
-               elixir-mode
-               elm-mode
-               ensime
-               evil
-               exec-path-from-shell
-               flx-ido
-               flycheck
-               gist
-               haskell-mode
-               hcl-mode
-               ido-ubiquitous
-               ido-vertical-mode
-               inf-ruby
-               js2-mode
-               json-mode
-               magit
-               markdown-mode
-               paredit
-               processing-mode
-               projectile
-               racket-mode
-               restart-emacs
-               scss-mode
-               smex
-               solarized-theme
-               web-mode
-               yaml-mode
-               yari
-               yasnippet))
-  (unless (package-installed-p pkg)
-    (package-install pkg)))
+(setq package-selected-packages '(ace-window
+                                  ag
+                                  anzu
+                                  better-defaults
+                                  cider
+                                  clojure-mode
+                                  coffee-mode
+                                  company
+                                  csv-mode
+                                  discover-my-major
+                                  editorconfig
+                                  elixir-mode
+                                  elm-mode
+                                  ensime
+                                  evil
+                                  exec-path-from-shell
+                                  flx-ido
+                                  flycheck
+                                  gist
+                                  haskell-mode
+                                  hcl-mode
+                                  ido-ubiquitous
+                                  ido-vertical-mode
+                                  inf-ruby
+                                  js2-mode
+                                  json-mode
+                                  magit
+                                  markdown-mode
+                                  paredit
+                                  processing-mode
+                                  projectile
+                                  racket-mode
+                                  restart-emacs
+                                  scss-mode
+                                  smex
+                                  solarized-theme
+                                  web-mode
+                                  yaml-mode
+                                  yari
+                                  yasnippet))
+(package-install-selected-packages)
 
 ;; Set-up $PATH and other ENV vars from bashrc
 (when (memq window-system '(mac ns))
