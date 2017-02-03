@@ -14,6 +14,7 @@
                                   cider
                                   clojure-mode
                                   coffee-mode
+                                  color-theme-solarized
                                   company
                                   csv-mode
                                   discover-my-major
@@ -179,7 +180,12 @@
   (interactive)
   (load-theme 'solarized-dark t))
 
-(mw-theme-light)
+;; I use bbatsov/solarized-emacs in a window-system and
+;; sellout/emacs-color-theme-solarized in a terminal.
+;; See: https://github.com/bbatsov/solarized-emacs/issues/18
+(if window-system
+    (mw-theme-light)
+  (load-theme 'solarized t))
 
 (when (fboundp 'mac-do-applescript)
     (defun osx-notify (title text)
