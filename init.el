@@ -23,6 +23,7 @@
                                   ensime
                                   evil
                                   exec-path-from-shell
+                                  extempore-mode
                                   flx-ido
                                   flycheck
                                   gist
