@@ -27,6 +27,7 @@
                                   flx-ido
                                   flycheck
                                   gist
+                                  gotham-theme
                                   haskell-mode
                                   hcl-mode
                                   ido-ubiquitous
@@ -44,10 +45,12 @@
                                   scss-mode
                                   smex
                                   solarized-theme
+                                  subatomic-theme
                                   web-mode
                                   yaml-mode
                                   yari
-                                  yasnippet))
+                                  yasnippet
+                                  zerodark-theme))
 (package-install-selected-packages)
 
 ;; Set-up $PATH and other ENV vars from bashrc
@@ -175,6 +178,7 @@
 (setq solarized-distinct-fringe-background t)
 (setq solarized-high-contrast-mode-line t)
 (setq solarized-use-more-italic t)
+(setq subatomic-more-visible-comment-delimiters t)
 
 (defun mw-theme-light ()
   (interactive)
@@ -187,7 +191,7 @@
 ;; I use bbatsov/solarized-emacs in a window-system.
 ;; See: https://github.com/bbatsov/solarized-emacs/issues/18
 (if window-system
-    (mw-theme-dark)
+    (load-theme 'zerodark t)
   (load-theme 'misterioso t))
 
 (when (fboundp 'mac-do-applescript)
