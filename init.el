@@ -70,6 +70,8 @@
 (projectile-global-mode)
 (yas-global-mode 1)
 (editorconfig-mode 1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 (when (eq window-system 'mac)
   (setq mac-command-modifier 'super)
