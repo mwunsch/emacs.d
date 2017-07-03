@@ -21,6 +21,7 @@
                                   elixir-mode
                                   elm-mode
                                   ensime
+                                  espresso-theme
                                   evil
                                   exec-path-from-shell
                                   extempore-mode
