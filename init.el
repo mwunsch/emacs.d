@@ -54,6 +54,8 @@
                                   zerodark-theme))
 (package-install-selected-packages)
 
+(require 'better-defaults)
+
 ;; Set-up $PATH and other ENV vars from bashrc
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
@@ -71,8 +73,6 @@
 (projectile-global-mode)
 (yas-global-mode 1)
 (editorconfig-mode 1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
 
 (when (eq window-system 'mac)
   (setq mac-command-modifier 'super)
