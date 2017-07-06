@@ -10,6 +10,7 @@
 (setq package-selected-packages '(ace-window
                                   ag
                                   anzu
+                                  auctex
                                   better-defaults
                                   cider
                                   clojure-mode
@@ -171,6 +172,8 @@
 (add-to-list 'auto-mode-alist '("Appfile\\'" . hcl-mode))
 
 (add-to-list 'company-backends 'company-elm)
+
+(add-to-list 'exec-path "/Library/TeX/texbin/")
 
 (put 'css-indent-offset 'safe-local-variable #'integerp)
 (put 'sgml-basic-offset 'safe-local-variable #'integerp)
