@@ -173,7 +173,10 @@
 
 (add-to-list 'company-backends 'company-elm)
 
-(add-to-list 'exec-path "/Library/TeX/texbin/")
+(when (file-accessible-directory-p "/Library/TeX/texbin")
+  ;; MacTeX puts executables here. Add to exec-path b/c I'd
+  ;; prefer not to have this stuff in my $PATH.
+  (add-to-list 'exec-path "/Library/TeX/texbin/"))
 
 (put 'css-indent-offset 'safe-local-variable #'integerp)
 (put 'sgml-basic-offset 'safe-local-variable #'integerp)
