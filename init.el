@@ -44,6 +44,7 @@
                                   projectile
                                   racket-mode
                                   restart-emacs
+                                  scribble-mode
                                   scss-mode
                                   smex
                                   solarized-theme
