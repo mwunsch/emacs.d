@@ -121,7 +121,7 @@
 
 (advice-add 'recompile :around (lambda (oldfun &rest r)
                                  ;; Change recompile prompts to y-or-n
-                                 (letf (((symbol-function 'yes-or-no-p) #'y-or-n-p))
+                                 (cl-letf (((symbol-function 'yes-or-no-p) #'y-or-n-p))
                                    (apply oldfun r))))
 
 (global-set-key (kbd "M-p") 'ace-window)
