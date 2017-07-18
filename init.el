@@ -148,6 +148,8 @@
 (add-hook 'markdown-mode-hook #'auto-fill-mode)
 (add-hook 'markdown-mode-hook #'abbrev-mode)
 (add-hook 'markdown-mode-hook #'flyspell-mode)
+(add-hook 'scribble-mode-hook #'auto-fill-mode)
+(add-hook 'scribble-mode-hook #'flyspell-mode)
 (add-hook 'erc-mode-hook #'abbrev-mode)
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 (add-hook 'scala-mode-hook #'ensime-mode)
