@@ -18,6 +18,7 @@
                                   company
                                   csv-mode
                                   discover-my-major
+                                  dracula-theme
                                   editorconfig
                                   elixir-mode
                                   elm-mode
@@ -148,7 +149,6 @@
 (add-hook 'markdown-mode-hook #'auto-fill-mode)
 (add-hook 'markdown-mode-hook #'abbrev-mode)
 (add-hook 'markdown-mode-hook #'flyspell-mode)
-(add-hook 'scribble-mode-hook #'auto-fill-mode)
 (add-hook 'scribble-mode-hook #'flyspell-mode)
 (add-hook 'erc-mode-hook #'abbrev-mode)
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
@@ -192,19 +192,12 @@
 (setq solarized-use-more-italic t)
 (setq subatomic-more-visible-comment-delimiters t)
 
-(defun mw-theme-light ()
-  (interactive)
-  (load-theme 'solarized-light t))
-
-(defun mw-theme-dark ()
-  (interactive)
-  (load-theme 'solarized-dark t))
-
-;; I use bbatsov/solarized-emacs in a window-system.
-;; See: https://github.com/bbatsov/solarized-emacs/issues/18
 (if window-system
-    (load-theme 'zerodark t)
+    (load-theme 'dracula t)
   (load-theme 'misterioso t))
+
+(when (member "SF Mono" (font-family-list))
+  (set-face-attribute 'default nil :family "SF Mono" :height 140))
 
 (when (fboundp 'mac-do-applescript)
     (defun osx-notify (title text)
