@@ -33,7 +33,7 @@
                                   gotham-theme
                                   haskell-mode
                                   hcl-mode
-                                  ido-ubiquitous
+                                  ido-completing-read+
                                   ido-vertical-mode
                                   inf-ruby
                                   js2-mode
@@ -58,6 +58,7 @@
 (package-install-selected-packages)
 
 (require 'better-defaults)
+(require 'ido-completing-read+)
 
 ;; Set-up $PATH and other ENV vars from bashrc
 (when (memq window-system '(mac ns))
@@ -66,6 +67,8 @@
 (smex-initialize)
 (global-prettify-symbols-mode t)
 (global-company-mode t)
+(ido-mode t)
+(ido-everywhere t)
 (ido-ubiquitous-mode 1)
 (flx-ido-mode 1)
 (ido-vertical-mode 1)
