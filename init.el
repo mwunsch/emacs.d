@@ -40,6 +40,7 @@
                                   json-mode
                                   magit
                                   markdown-mode
+                                  mastodon
                                   paredit
                                   processing-mode
                                   projectile
@@ -122,6 +123,8 @@
                         (or s "\x1f44b\x1f3fc")))
 (when (executable-find ispell-program-name)
   (erc-spelling-mode 1))
+
+(setq mastodon-instance-url "https://mastodon.social")
 
 (advice-add 'recompile :around (lambda (oldfun &rest r)
                                  ;; Change recompile prompts to y-or-n
