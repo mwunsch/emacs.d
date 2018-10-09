@@ -31,6 +31,7 @@
                                   flycheck
                                   gist
                                   gotham-theme
+                                  haml-mode
                                   haskell-mode
                                   hcl-mode
                                   ido-completing-read+
