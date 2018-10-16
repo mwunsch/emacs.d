@@ -30,6 +30,7 @@
                                   flx-ido
                                   flycheck
                                   gist
+                                  go-mode
                                   gotham-theme
                                   haml-mode
                                   haskell-mode
