@@ -79,7 +79,7 @@
 (global-auto-revert-mode 1)
 (global-magit-file-mode 1)
 (delete-selection-mode t)
-(projectile-global-mode)
+(projectile-mode +1)
 (yas-global-mode 1)
 (editorconfig-mode 1)
 
@@ -147,6 +147,7 @@
 (dolist (key '("s-0" "s-=" "s-+" "s--"))
   (global-set-key (kbd key) 'text-scale-adjust))
 
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "s-p") 'projectile-find-file)
 
 (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
