@@ -53,6 +53,7 @@
                                   smex
                                   solarized-theme
                                   subatomic-theme
+                                  tide
                                   web-mode
                                   yaml-mode
                                   yari
@@ -173,12 +174,16 @@
                            (setq web-mode-css-indent-offset 2)
                            (setq web-mode-script-padding 0)
                            (setq web-mode-style-padding 0)))
+(add-hook 'web-mode-hook (lambda ()
+                           (when (string-equal "tsx" (file-name-extension buffer-file-name))
+                             (setup-tide-mode))))
 (add-hook 'compilation-filter-hook (lambda ()
                                      (ansi-color-apply-on-region compilation-filter-start
                                                                  (point-max))))
 
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("Appfile\\'" . hcl-mode))
