@@ -36,7 +36,10 @@
   (set-face-attribute 'default nil :family "SF Mono" :height 124))
 
 (use-package doom-themes
-  :init (load-theme 'doom-palenight t))
+  :init (load-theme 'doom-one t))
+
+(use-package solaire-mode
+  :config (solaire-global-mode 1))
 
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
@@ -65,3 +68,9 @@
 (use-package paredit
   :hook ((lisp-data-mode . paredit-mode)
          (scheme-mode . paredit-mode)))
+
+(use-package nix-mode
+  :mode "\\.nix\\'")
+
+(use-package rust-mode
+  :mode "\\.rs\\'")
