@@ -20,7 +20,7 @@
 (delete-selection-mode 1)
 (setq create-lockfiles nil)
 (column-number-mode 1)
-(add-hook 'prog-mode-hook #'linum-mode)
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
 ;; Ido and Completion
 (ido-mode 1)
@@ -28,7 +28,7 @@
 (use-package ido-completing-read+
   :init (ido-ubiquitous-mode 1))
 (use-package ido-vertical-mode
-  :init (ido-vertical-mode 1)
+  :config (ido-vertical-mode 1)
   :custom (ido-vertical-define-keys 'C-n-C-p-up-and-down))
 
 ;; Cosmetic
@@ -36,7 +36,7 @@
   (set-face-attribute 'default nil :family "SF Mono" :height 124))
 
 (use-package doom-themes
-  :init (load-theme 'doom-one t))
+  :config (load-theme 'doom-one t))
 
 (use-package solaire-mode
   :config (solaire-global-mode 1))
@@ -46,11 +46,11 @@
   :custom (doom-modeline-icon nil))
 
 (use-package anzu
-  :init (global-anzu-mode 1))
+  :config (global-anzu-mode 1))
 
 ;; Projects
 (use-package projectile
-  :init (projectile-mode 1)
+  :config (projectile-mode 1)
   :bind (:map projectile-mode-map
               ("C-c p" . projectile-command-map)))
 
