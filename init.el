@@ -74,3 +74,10 @@
 
 (use-package rust-mode
   :mode "\\.rs\\'")
+
+(use-package inf-ruby
+  :commands inf-ruby
+  :hook (ruby-mode . inf-ruby-minor-mode))
+
+(use-package yari
+  :commands yari)
