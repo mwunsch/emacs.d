@@ -65,6 +65,9 @@
   :commands (lsp lsp-deferred)
   :init (setq lsp-keymap-prefix "C-c l"))
 
+(use-package company
+  :hook (prog-mode . company-mode))
+
 (use-package paredit
   :hook ((lisp-data-mode . paredit-mode)
          (scheme-mode . paredit-mode)))
