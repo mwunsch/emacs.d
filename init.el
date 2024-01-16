@@ -51,8 +51,7 @@
 ;; Projects
 (use-package projectile
   :config (projectile-mode 1)
-  :bind (:map projectile-mode-map
-              ("C-c p" . projectile-command-map)))
+  :bind-keymap ("C-c p" . projectile-command-map))
 
 (use-package magit
   :commands magit-status)
