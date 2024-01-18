@@ -59,6 +59,11 @@
 (use-package gist
   :commands (gist-list gist-region-or-buffer))
 
+(use-package dockerfile-mode)
+
+(use-package docker
+  :commands docker)
+
 ;; Coding
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
