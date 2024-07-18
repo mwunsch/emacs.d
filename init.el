@@ -67,6 +67,9 @@
 (use-package docker
   :commands docker)
 
+(use-package gptel
+  :commands (gptel gptel-send))
+
 ;; Coding
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
