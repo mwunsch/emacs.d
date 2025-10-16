@@ -101,8 +101,12 @@
   :bind-keymap ("C-c p" . projectile-command-map))
 
 ;; Inherit PATH and environment from shell (important on macOS)
+;; Configured to read .zshenv for Volta (node version manager)
 (use-package exec-path-from-shell
-  :config (exec-path-from-shell-initialize))
+  :custom
+  (exec-path-from-shell-shell-name "/bin/zsh")
+  :config
+  (exec-path-from-shell-initialize))
 
 ;; Git interface
 ;; Key binding: M-x magit-status
