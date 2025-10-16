@@ -108,6 +108,12 @@
   :config
   (exec-path-from-shell-initialize))
 
+;; Automatically load direnv environments
+;; Essential for nix/devenv projects
+(use-package direnv
+  :config
+  (direnv-mode))
+
 ;; Git interface
 ;; Key binding: M-x magit-status
 (use-package magit

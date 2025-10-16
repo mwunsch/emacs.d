@@ -19,3 +19,4 @@ transient
 tramp
 tree-sitter/
 .lsp-session*
+.cache/
