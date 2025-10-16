@@ -1,34 +1,153 @@
-These are my emacs customizations. I am in the process of learning and using emacs as my primary text editor (amongst all the other things that emacs seems to do for you).
+#+TITLE: My Emacs Configuration
+#+AUTHOR: Mark Wunsch
+#+OPTIONS: toc:2
 
-I recently chose to use the "Mac Port" of emacs (recommended by Spacemacs): https://github.com/railwaycat/homebrew-emacsmacport
-Below is my process for learning emacs and the methodology behind my choices:
+* Introduction
 
-+ First, do the emacs tutorial (C-h t)
-+ Purchase and Read Mickey Petersen's excellent Mastering Emacs text (https://www.masteringemacs.org/)
-+ Follow the recommendations of technomancy's Emacs Starter Kit (https://github.com/technomancy/emacs-starter-kit) and start with the easy-peasy Better Default's package (https://github.com/technomancy/better-defaults)
-+ Read through the source code for drop-in emacs configs like Prelude (https://github.com/bbatsov/prelude) and Ohai-Emacs (https://github.com/bodil/ohai-emacs)
-+ Check out these folks' emacs.d's:
-  + https://github.com/flyingmachine/emacs.d
-  + https://github.com/bodil/emacs.d
-  + https://github.com/magnars/.emacs.d
-  + https://github.com/howardabrams/dot-files (Howard uses Literate Programming in Org-mode. Awesome)
+These are my Emacs customizations. I am in the process of learning and using Emacs as my primary text editor (amongst all the other things that Emacs seems to do for you).
 
-The important thing to understand is that learning Emacs isn't just learning the particulars of a text editor. Learning Emacs means learning a framework written in Emacs Lisp that is all about taking actions on buffers of text. Learning the Emacs basics are important, but that only scratches the surface of the different interaction modes. Here are some that I'm trying to work into my daily life:
+I recently chose to use the "Mac Port" of Emacs (recommended by Spacemacs): https://github.com/railwaycat/homebrew-emacsmacport
 
-+ http://orgmode.org/
-+ http://company-mode.github.io/
-+ https://github.com/clojure-emacs/cider
-+ https://github.com/bbatsov/projectile
-+ http://magit.vc/
+* Philosophy
 
-The key is to keep `C-h a` (pattern-matching help) and `C-h m` close at hand. C-h everything!
+The important thing to understand is that learning Emacs isn't just learning the particulars of a text editor. Learning Emacs means learning a framework written in Emacs Lisp that is all about taking actions on buffers of text. Learning the Emacs basics are important, but that only scratches the surface of the different interaction modes.
 
-I'm ignoring a lot of the Customization parts and am just using the default theme, so my emacs is probably uglier than most.
+My configuration follows the philosophy of [[https://github.com/technomancy/better-defaults][better-defaults]] - starting simple and adding functionality as needed, rather than using a large framework like Spacemacs or Doom Emacs.
 
-Here are some more resources:
+* Current Setup
 
-+ https://github.com/chrisdone/elisp-guide
-+ http://emacslife.com/
-+ http://planet.emacsen.org/
+** Package Management
+- Uses ~use-package~ for declarative package configuration
+- Configured with MELPA, Org, and GNU ELPA repositories
+
+** Core Packages
+
+*** Editor Enhancements
+- [[https://github.com/technomancy/better-defaults][better-defaults]] - Sensible defaults for Emacs
+- [[https://github.com/justbur/emacs-which-key][which-key]] - Discover keybindings as you type
+- [[https://www.emacswiki.org/emacs/InteractivelyDoThings][ido-mode]] - Enhanced minibuffer completion
+- [[https://github.com/DarwinAwardWinner/ido-completing-read-plus][ido-completing-read+]] - Ido everywhere
+- [[https://github.com/creichert/ido-vertical-mode.el][ido-vertical-mode]] - Vertical display for Ido
+
+*** Appearance
+- [[https://github.com/doomemacs/themes][doom-themes]] - Modern color themes (using doom-one)
+- [[https://github.com/hlissner/emacs-solaire-mode][solaire-mode]] - Visual distinction between code and UI buffers
+- [[https://github.com/seagle0128/doom-modeline][doom-modeline]] - Clean, informative modeline
+- [[https://github.com/emacsorphanage/anzu][anzu]] - Search match count display
+- *Font*: SF Mono at 12.4pt (when available)
+
+*** Project & Version Control
+- [[https://github.com/bbatsov/projectile][projectile]] (~C-c p~) - Project management and navigation
+- [[http://magit.vc/][magit]] - Git interface
+- [[https://github.com/defunkt/gist.el][gist]] - GitHub gist integration
+- [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] - Inherit shell environment (important on macOS)
+
+*** Development Tools
+- [[https://github.com/emacs-lsp/lsp-mode][lsp-mode]] (~C-c l~) - Language Server Protocol support
+- [[https://www.flycheck.org/][flycheck]] (~C-c !~) - On-the-fly syntax checking
+- [[http://company-mode.github.io/][company-mode]] - In-buffer completion
+- [[https://github.com/akermu/emacs-libvterm][vterm]] - Terminal emulator
+- [[https://github.com/manzaltu/claude-code-ide.el][claude-code-ide]] (~C-c C-'~) - Claude AI integration
+
+*** Language Support
+
+**** TypeScript/TSX
+- Uses built-in ~typescript-ts-mode~ with tree-sitter
+- Automatically installs tree-sitter grammars
+- LSP enabled for IDE features
+- *Requires*: ~npm install -g typescript-language-server typescript~
+
+**** Ruby
+- [[https://github.com/nonsequitur/inf-ruby][inf-ruby]] - REPL integration
+- [[https://github.com/hron/yari.el][yari]] - Documentation lookup
+
+**** Rust
+- [[https://github.com/rust-lang/rust-mode][rust-mode]] - Rust language support
+
+**** Nix
+- [[https://github.com/NixOS/nix-mode][nix-mode]] - Nix expression editing
+
+**** Lisp
+- [[https://www.emacswiki.org/emacs/ParEdit][paredit]] - Structural editing for Lisp and Scheme
+
+**** Docker
+- [[https://github.com/spotify/dockerfile-mode][dockerfile-mode]] - Dockerfile syntax
+- [[https://github.com/Silex/docker.el][docker]] - Docker management
+
+**** AI Assistant
+- [[https://github.com/karthink/gptel][gptel]] - ChatGPT/Claude interface
+
+* Key Bindings Reference
+
+** Essential Emacs
+| Key       | Command                 | Description               |
+|-----------+-------------------------+---------------------------|
+| ~C-h t~   | help-with-tutorial      | Emacs tutorial            |
+| ~C-h a~   | apropos-command         | Search for command        |
+| ~C-h m~   | describe-mode           | Current mode help         |
+| ~C-h k~   | describe-key            | Describe key binding      |
+| ~C-h .~   | display-local-help      | Help at point             |
+
+** Project Management (Projectile)
+| Key       | Command                    | Description               |
+|-----------+----------------------------+---------------------------|
+| ~C-c p f~ | projectile-find-file       | Find file in project      |
+| ~C-c p p~ | projectile-switch-project  | Switch project            |
+| ~C-c p s~ | projectile-grep            | Search in project         |
+
+** Flycheck
+| Key       | Command                 | Description               |
+|-----------+-------------------------+---------------------------|
+| ~C-c ! l~ | flycheck-list-errors    | List all errors           |
+| ~C-c ! n~ | flycheck-next-error     | Jump to next error        |
+| ~C-c ! p~ | flycheck-previous-error | Jump to previous error    |
+| ~C-c ! v~ | flycheck-verify-setup   | Verify checker setup      |
+
+** LSP Mode
+| Key         | Command            | Description               |
+|-------------+--------------------+---------------------------|
+| ~C-c l g g~ | lsp-find-definition| Go to definition          |
+| ~C-c l g r~ | lsp-find-references| Find references           |
+| ~C-c l r r~ | lsp-rename         | Rename symbol             |
+| ~C-c l = =~ | lsp-format-buffer  | Format buffer             |
+| ~C-c l a a~ | lsp-execute-code-action | Execute code action  |
+| ~C-c l h h~ | lsp-describe-thing-at-point | Show docs        |
+
+** Other Tools
+| Key       | Command                 | Description               |
+|-----------+-------------------------+---------------------------|
+| ~M-x magit-status~ | magit-status   | Git status                |
+| ~C-c C-'~ | claude-code-ide-menu    | Claude Code menu          |
+
+* Learning Resources
+
+** Books & Guides
+- [[https://www.masteringemacs.org/][Mastering Emacs]] by Mickey Petersen - Comprehensive guide
+- [[https://github.com/chrisdone/elisp-guide][Emacs Lisp Guide]] by Chris Done
+
+** Community Resources
+- http://emacslife.com/
+- http://planet.emacsen.org/
+- http://orgmode.org/
+
+** Configuration Examples
+People whose configs I've learned from:
+- https://github.com/flyingmachine/emacs.d
+- https://github.com/bodil/emacs.d
+- https://github.com/magnars/.emacs.d
+- https://github.com/howardabrams/dot-files (uses Literate Programming in Org-mode)
+- https://github.com/bbatsov/prelude
+- https://github.com/bodil/ohai-emacs
+
+** Key Advice
+The key is to keep ~C-h a~ (pattern-matching help) and ~C-h m~ close at hand. ~C-h~ everything!
+
+* Future Enhancements
+
+Some things I'm considering adding:
+- More language modes as needed
+- Org-mode configuration for note-taking and planning
+- Custom keybindings as I discover my workflow patterns
+- Performance optimizations (compile, lazy loading tweaks)
 
 Eventually, I'll get the hang of it.

@@ -8,6 +8,7 @@ backups
 places
 eshell
 projectile-bookmarks.eld
+projects
 recentf
 /var/pcache
 url
@@ -15,4 +16,6 @@ smex-items
 custom.el
 history
 transient
+tramp
+tree-sitter/
 .lsp-session*
