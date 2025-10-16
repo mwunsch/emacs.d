@@ -204,6 +204,11 @@
 (use-package docker
   :commands docker)
 
+;;; Document Formats
+;; EPUB reader
+(use-package nov
+  :mode ("\\.epub\\'" . nov-mode))
+
 ;;; AI Assistant
 (use-package gptel
   :commands (gptel gptel-send))
