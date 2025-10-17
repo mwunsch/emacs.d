@@ -6,7 +6,12 @@
 
 These are my Emacs customizations. I am in the process of learning and using Emacs as my primary text editor (amongst all the other things that Emacs seems to do for you).
 
-I recently chose to use the "Mac Port" of Emacs (recommended by Spacemacs): https://github.com/railwaycat/homebrew-emacsmacport
+** System Requirements
+
+Installed via Homebrew:
+- ~cmake~ and ~libtool~ - Required for vterm compilation
+- ~ghostscript~ - Required for PDF rendering
+- ~git~ - Required for tree-sitter grammar compilation
 
 * Philosophy
 
@@ -28,6 +33,7 @@ My configuration follows the philosophy of [[https://github.com/technomancy/bett
 - [[https://www.emacswiki.org/emacs/InteractivelyDoThings][ido-mode]] - Enhanced minibuffer completion
 - [[https://github.com/DarwinAwardWinner/ido-completing-read-plus][ido-completing-read+]] - Ido everywhere
 - [[https://github.com/creichert/ido-vertical-mode.el][ido-vertical-mode]] - Vertical display for Ido
+- ~global-auto-revert-mode~ - Automatically reload files when changed on disk
 
 *** Appearance
 - [[https://github.com/doomemacs/themes][doom-themes]] - Modern color themes (using doom-one)
@@ -40,11 +46,13 @@ My configuration follows the philosophy of [[https://github.com/technomancy/bett
 - [[https://github.com/bbatsov/projectile][projectile]] (~C-c p~) - Project management and navigation
 - [[http://magit.vc/][magit]] - Git interface
 - [[https://github.com/defunkt/gist.el][gist]] - GitHub gist integration
-- [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] - Inherit shell environment (important on macOS)
+- [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] - Inherit shell environment (important on macOS, optimized for fast startup)
+- [[https://github.com/wbolster/emacs-direnv][direnv]] - Automatically load direnv environments (essential for nix/devenv projects)
 
 *** Development Tools
-- [[https://github.com/emacs-lsp/lsp-mode][lsp-mode]] (~C-c l~) - Language Server Protocol support
-- [[https://www.flycheck.org/][flycheck]] (~C-c !~) - On-the-fly syntax checking
+- ~eglot~ (built-in) - Language Server Protocol support using standard Emacs bindings
+- ~flymake~ (built-in, ~M-g n/p~) - On-the-fly syntax checking, displays LSP diagnostics
+- ~tree-sitter~ (built-in) - Advanced syntax highlighting and code navigation (Emacs 30)
 - [[http://company-mode.github.io/][company-mode]] - In-buffer completion
 - [[https://github.com/akermu/emacs-libvterm][vterm]] - Terminal emulator
 - [[https://github.com/manzaltu/claude-code-ide.el][claude-code-ide]] (~C-c C-'~) - Claude AI integration
@@ -52,9 +60,9 @@ My configuration follows the philosophy of [[https://github.com/technomancy/bett
 *** Language Support
 
 **** TypeScript/TSX
-- Uses built-in ~typescript-ts-mode~ with tree-sitter
-- Automatically installs tree-sitter grammars
-- LSP enabled for IDE features
+- Uses built-in ~typescript-ts-mode~ with tree-sitter (Emacs 30)
+- Automatically compiles and installs tree-sitter grammars from source on first use
+- Eglot provides LSP features (go-to-definition, find-references, completion, diagnostics)
 - *Requires*: ~npm install -g typescript-language-server typescript~
 
 **** Ruby
@@ -73,6 +81,9 @@ My configuration follows the philosophy of [[https://github.com/technomancy/bett
 **** Docker
 - [[https://github.com/spotify/dockerfile-mode][dockerfile-mode]] - Dockerfile syntax
 - [[https://github.com/Silex/docker.el][docker]] - Docker management
+
+**** Document Formats
+- [[https://depp.brause.cc/nov.el/][nov.el]] - EPUB reader
 
 **** AI Assistant
 - [[https://github.com/karthink/gptel][gptel]] - ChatGPT/Claude interface
@@ -95,23 +106,24 @@ My configuration follows the philosophy of [[https://github.com/technomancy/bett
 | ~C-c p p~ | projectile-switch-project  | Switch project            |
 | ~C-c p s~ | projectile-grep            | Search in project         |
 
-** Flycheck
-| Key       | Command                 | Description               |
-|-----------+-------------------------+---------------------------|
-| ~C-c ! l~ | flycheck-list-errors    | List all errors           |
-| ~C-c ! n~ | flycheck-next-error     | Jump to next error        |
-| ~C-c ! p~ | flycheck-previous-error | Jump to previous error    |
-| ~C-c ! v~ | flycheck-verify-setup   | Verify checker setup      |
+** Flymake (Syntax Checking)
+| Key       | Command                      | Description               |
+|-----------+------------------------------+---------------------------|
+| ~M-g n~   | flymake-goto-next-error      | Jump to next error        |
+| ~M-g p~   | flymake-goto-prev-error      | Jump to previous error    |
+| ~C-h .~   | display-local-help           | Show error at point       |
+| ~M-x~     | flymake-show-buffer-diagnostics | List all errors        |
 
-** LSP Mode
-| Key         | Command            | Description               |
-|-------------+--------------------+---------------------------|
-| ~C-c l g g~ | lsp-find-definition| Go to definition          |
-| ~C-c l g r~ | lsp-find-references| Find references           |
-| ~C-c l r r~ | lsp-rename         | Rename symbol             |
-| ~C-c l = =~ | lsp-format-buffer  | Format buffer             |
-| ~C-c l a a~ | lsp-execute-code-action | Execute code action  |
-| ~C-c l h h~ | lsp-describe-thing-at-point | Show docs        |
+** Eglot (LSP)
+| Key         | Command                | Description               |
+|-------------+------------------------+---------------------------|
+| ~M-.~       | xref-find-definitions  | Go to definition          |
+| ~M-?~       | xref-find-references   | Find references           |
+| ~M-,~       | xref-go-back           | Go back                   |
+| ~C-h .~     | eldoc-doc-buffer       | Show documentation        |
+| ~C-c r~     | eglot-rename           | Rename symbol             |
+| ~C-c a~     | eglot-code-actions     | Execute code action       |
+| ~C-c f~     | eglot-format           | Format buffer/region      |
 
 ** Other Tools
 | Key       | Command                 | Description               |
