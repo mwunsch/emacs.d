@@ -1,4 +1,4 @@
-;;; init.el --- My Emacs configuration -*- lexical-binding: t; -*-
+;;; init.el --- My Emacs configuration -*- lexical-binding: t; no-byte-compile: t -*-
 
 ;;; Commentary:
 ;; Personal Emacs configuration following technomancy's better-defaults philosophy
@@ -39,6 +39,10 @@
 (delete-selection-mode 1)              ; Replace selection when typing
 (setq create-lockfiles nil)            ; Don't create .# lockfiles
 (column-number-mode 1)                 ; Show column number in mode line
+
+;; Automatically reload files when changed on disk
+(global-auto-revert-mode 1)            ; Auto-revert buffers when files change
+(setq auto-revert-avoid-polling t)     ; Use file notifications instead of polling
 
 ;; Programming mode enhancements
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
@@ -105,6 +109,10 @@
 (use-package exec-path-from-shell
   :custom
   (exec-path-from-shell-shell-name "/bin/zsh")
+  ;; Only load login shell config (.zshenv, .zprofile), skip .zshrc
+  (exec-path-from-shell-arguments '("-l"))
+  ;; Only copy essential variables (faster than copying everything)
+  (exec-path-from-shell-variables '("PATH" "MANPATH"))
   :config
   (exec-path-from-shell-initialize))
 
@@ -127,18 +135,26 @@
 ;;; Development Tools
 ;;; ============================================================================
 
-;; LSP (Language Server Protocol) support
+;; LSP (Language Server Protocol) support via built-in eglot
 ;; Provides IDE-like features: go-to-definition, find-references, etc.
-;; Key prefix: C-c l
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :init (setq lsp-keymap-prefix "C-c l"))
+;; Uses standard Emacs bindings (M-., M-?, etc.)
+(use-package eglot
+  :ensure nil
+  :hook (prog-mode . eglot-ensure)
+  :config
+  ;; Disable event logging for better performance (use nil to disable)
+  (setq eglot-events-buffer-config '(:size 0))
+  ;; Shutdown server when last buffer is killed
+  (setq eglot-autoshutdown t))
 
-;; On-the-fly syntax checking
-;; Automatically enabled in all programming modes
-;; Key prefix: C-c !
-(use-package flycheck
-  :hook (prog-mode . flycheck-mode))
+;; On-the-fly syntax checking via built-in flymake
+;; Automatically enabled with eglot, displays LSP diagnostics
+;; Key bindings: M-g n/p (next/prev error), C-h . (show error)
+(use-package flymake
+  :ensure nil
+  :hook (prog-mode . flymake-mode)
+  :bind (("M-g n" . flymake-goto-next-error)
+         ("M-g p" . flymake-goto-prev-error)))
 
 ;; In-buffer completion
 ;; Navigate with M-n/M-p, complete with RET
@@ -176,14 +192,17 @@
 ;;; TypeScript/TSX
 ;; Uses built-in tree-sitter modes for better syntax highlighting and navigation
 ;; Automatically installs tree-sitter grammars if not present
-;; LSP enabled for type checking, completion, and refactoring
+;; Eglot provides LSP features (requires typescript-language-server installed)
 (use-package typescript-ts-mode
   :ensure nil
   :mode (("\\.ts\\'" . typescript-ts-mode)
          ("\\.tsx\\'" . tsx-ts-mode))
-  :hook ((typescript-ts-mode . lsp-deferred)
-         (tsx-ts-mode . lsp-deferred))
   :config
+  ;; Define grammar sources for tree-sitter
+  (setq treesit-language-source-alist
+        '((typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+          (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")))
+  ;; Install grammars if not available
   (unless (treesit-language-available-p 'typescript)
     (treesit-install-language-grammar 'typescript))
   (unless (treesit-language-available-p 'tsx)
