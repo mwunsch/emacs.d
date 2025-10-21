@@ -79,7 +79,10 @@
 
 ;; Doom theme for modern aesthetics
 (use-package doom-themes
-  :config (load-theme 'doom-one t))
+  :config
+  (load-theme 'doom-one t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-org-config))
 
 ;; Distinguish "real" buffers from special/temporary ones
 (use-package solaire-mode
@@ -98,11 +101,12 @@
 ;;; Project & Version Control
 ;;; ============================================================================
 
-;; Project management with projectile
-;; Key bindings: C-c p (projectile-command-map)
-(use-package projectile
-  :config (projectile-mode 1)
-  :bind-keymap ("C-c p" . projectile-command-map))
+;; Project management with built-in project.el
+;; Key bindings: C-x p (default), C-c p (custom binding for muscle memory)
+(use-package project
+  :ensure nil
+  :config
+  (global-set-key (kbd "C-c p") project-prefix-map))
 
 ;; Inherit PATH and environment from shell (important on macOS)
 ;; Configured to read .zshenv for Volta (node version manager)
@@ -160,6 +164,21 @@
 ;; Navigate with M-n/M-p, complete with RET
 (use-package company
   :hook (prog-mode . company-mode))
+
+;; File tree sidebar
+;; Key binding: C-c t
+(use-package treemacs
+  :bind ("C-c t" . treemacs)
+  :custom
+  (treemacs-width 30)
+  (treemacs-follow-mode t)
+  (treemacs-filewatch-mode t)
+  :config
+  (setq treemacs-no-png-images t))
+
+;; Treemacs integration with magit
+(use-package treemacs-magit
+  :after (treemacs magit))
 
 ;; Terminal emulator
 (use-package vterm)

@@ -43,7 +43,7 @@ My configuration follows the philosophy of [[https://github.com/technomancy/bett
 - *Font*: SF Mono at 12.4pt (when available)
 
 *** Project & Version Control
-- [[https://github.com/bbatsov/projectile][projectile]] (~C-c p~) - Project management and navigation
+- ~project.el~ (built-in, ~C-c p~) - Project management and navigation
 - [[http://magit.vc/][magit]] - Git interface
 - [[https://github.com/defunkt/gist.el][gist]] - GitHub gist integration
 - [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] - Inherit shell environment (important on macOS, optimized for fast startup)
@@ -54,6 +54,7 @@ My configuration follows the philosophy of [[https://github.com/technomancy/bett
 - ~flymake~ (built-in, ~M-g n/p~) - On-the-fly syntax checking, displays LSP diagnostics
 - ~tree-sitter~ (built-in) - Advanced syntax highlighting and code navigation (Emacs 30)
 - [[http://company-mode.github.io/][company-mode]] - In-buffer completion
+- [[https://github.com/Alexander-Miller/treemacs][treemacs]] (~C-c t~) - File tree sidebar with git status indicators
 - [[https://github.com/akermu/emacs-libvterm][vterm]] - Terminal emulator
 - [[https://github.com/manzaltu/claude-code-ide.el][claude-code-ide]] (~C-c C-'~) - Claude AI integration
 
@@ -99,12 +100,14 @@ My configuration follows the philosophy of [[https://github.com/technomancy/bett
 | ~C-h k~   | describe-key            | Describe key binding      |
 | ~C-h .~   | display-local-help      | Help at point             |
 
-** Project Management (Projectile)
+** Project Management (project.el)
 | Key       | Command                    | Description               |
 |-----------+----------------------------+---------------------------|
-| ~C-c p f~ | projectile-find-file       | Find file in project      |
-| ~C-c p p~ | projectile-switch-project  | Switch project            |
-| ~C-c p s~ | projectile-grep            | Search in project         |
+| ~C-c p f~ | project-find-file          | Find file in project      |
+| ~C-c p p~ | project-switch-project     | Switch project            |
+| ~C-c p g~ | project-find-regexp        | Search in project         |
+| ~C-c p b~ | project-switch-to-buffer   | Switch to project buffer  |
+| ~C-c p d~ | project-find-dir           | Find directory in project |
 
 ** Flymake (Syntax Checking)
 | Key       | Command                      | Description               |
@@ -128,8 +131,19 @@ My configuration follows the philosophy of [[https://github.com/technomancy/bett
 ** Other Tools
 | Key       | Command                 | Description               |
 |-----------+-------------------------+---------------------------|
+| ~C-c t~   | treemacs                | Toggle file tree sidebar  |
 | ~M-x magit-status~ | magit-status   | Git status                |
 | ~C-c C-'~ | claude-code-ide-menu    | Claude Code menu          |
+
+** Treemacs (File Tree)
+Inside the treemacs buffer:
+| Key       | Command                 | Description               |
+|-----------+-------------------------+---------------------------|
+| ~n/p~     | next/previous           | Navigate files/folders    |
+| ~RET~     | treemacs-RET-action     | Open file or toggle dir   |
+| ~TAB~     | treemacs-TAB-action     | Expand/collapse directory |
+| ~q~       | quit-window             | Close treemacs            |
+| ~?~       | treemacs-helpful-hydra  | Show all keybindings      |
 
 * Learning Resources
 
