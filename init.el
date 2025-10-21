@@ -39,6 +39,7 @@
 (delete-selection-mode 1)              ; Replace selection when typing
 (setq create-lockfiles nil)            ; Don't create .# lockfiles
 (column-number-mode 1)                 ; Show column number in mode line
+(setq use-short-answers t)             ; Use "y" or "n" instead of "yes" or "no
 
 ;; Automatically reload files when changed on disk
 (global-auto-revert-mode 1)            ; Auto-revert buffers when files change
@@ -46,6 +47,22 @@
 
 ;; Programming mode enhancements
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+
+;; Tab bar for managing window configurations as tabs
+;; Behaves like native macOS tabs
+(use-package tab-bar
+  :ensure nil
+  :config
+  (tab-bar-mode 1)
+  (setq tab-bar-show 1)                      ; Show tab bar only when > 1 tab
+  (setq tab-bar-new-tab-choice "*scratch*")  ; What to show in new tabs
+  (setq tab-bar-new-tab-to 'rightmost)       ; Place new tabs on the right
+  (setq tab-bar-close-button-show nil)       ; Hide close button (cleaner)
+  (setq tab-bar-tab-hints t)                 ; Show tab numbers for quick switching
+  :bind (("s-t" . tab-new)                   ; Cmd+T for new tab
+         ("s-w" . tab-close)                 ; Cmd+W to close tab
+         ("s-{" . tab-previous)              ; Cmd+{ for previous tab
+         ("s-}" . tab-next)))                ; Cmd+} for next tab
 
 ;; Discover keybindings as you type
 (use-package which-key
@@ -106,7 +123,8 @@
 (use-package project
   :ensure nil
   :config
-  (global-set-key (kbd "C-c p") project-prefix-map))
+  (global-set-key (kbd "C-c p") project-prefix-map)
+  (global-set-key (kbd "s-p") 'project-find-file))
 
 ;; Inherit PATH and environment from shell (important on macOS)
 ;; Configured to read .zshenv for Volta (node version manager)
