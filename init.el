@@ -53,8 +53,10 @@
 
 ;; Soft wrap at fill-column in text modes
 (use-package visual-fill-column
-  :hook ((visual-line-mode . visual-fill-column-mode)
-         (visual-line-mode . display-fill-column-indicator-mode)))
+  :config
+  (setq visual-fill-column-enable-sensible-window-split t)
+  (add-hook 'visual-line-mode-hook #'visual-fill-column-for-vline)
+  :hook ((visual-line-mode . display-fill-column-indicator-mode)))
 
 ;; Discover keybindings as you type
 (use-package which-key
