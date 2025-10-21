@@ -45,24 +45,16 @@
 (global-auto-revert-mode 1)            ; Auto-revert buffers when files change
 (setq auto-revert-avoid-polling t)     ; Use file notifications instead of polling
 
+;; Text mode enhancements
+(add-hook 'text-mode-hook #'visual-line-mode)
+
 ;; Programming mode enhancements
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
-;; Tab bar for managing window configurations as tabs
-;; Behaves like native macOS tabs
-(use-package tab-bar
-  :ensure nil
-  :config
-  (tab-bar-mode 1)
-  (setq tab-bar-show 1)                      ; Show tab bar only when > 1 tab
-  (setq tab-bar-new-tab-choice "*scratch*")  ; What to show in new tabs
-  (setq tab-bar-new-tab-to 'rightmost)       ; Place new tabs on the right
-  (setq tab-bar-close-button-show nil)       ; Hide close button (cleaner)
-  (setq tab-bar-tab-hints t)                 ; Show tab numbers for quick switching
-  :bind (("s-t" . tab-new)                   ; Cmd+T for new tab
-         ("s-w" . tab-close)                 ; Cmd+W to close tab
-         ("s-{" . tab-previous)              ; Cmd+{ for previous tab
-         ("s-}" . tab-next)))                ; Cmd+} for next tab
+;; Soft wrap at fill-column in text modes
+(use-package visual-fill-column
+  :hook ((visual-line-mode . visual-fill-column-mode)
+         (visual-line-mode . display-fill-column-indicator-mode)))
 
 ;; Discover keybindings as you type
 (use-package which-key
@@ -221,6 +213,14 @@
 ;;; Nix
 (use-package nix-mode
   :mode "\\.nix\\'")
+
+;;; Markdown
+(use-package markdown-mode
+  :mode (("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode)
+         ("README\\.md\\'" . gfm-mode))
+  :init (setq markdown-command "pandoc")
+  :hook (gfm-mode . display-line-numbers-mode))
 
 ;;; Rust
 (use-package rust-mode

@@ -12,6 +12,7 @@ Installed via Homebrew:
 - ~cmake~ and ~libtool~ - Required for vterm compilation
 - ~ghostscript~ - Required for PDF rendering
 - ~git~ - Required for tree-sitter grammar compilation
+- ~pandoc~ - Required for Markdown processing
 
 * Philosophy
 
@@ -34,6 +35,8 @@ My configuration follows the philosophy of [[https://github.com/technomancy/bett
 - [[https://github.com/DarwinAwardWinner/ido-completing-read-plus][ido-completing-read+]] - Ido everywhere
 - [[https://github.com/creichert/ido-vertical-mode.el][ido-vertical-mode]] - Vertical display for Ido
 - ~global-auto-revert-mode~ - Automatically reload files when changed on disk
+- ~visual-line-mode~ - Soft line wrapping in text modes
+- [[https://codeberg.org/joostkremers/visual-fill-column][visual-fill-column]] - Wrap text at fill-column with visual indicator
 
 *** Appearance
 - [[https://github.com/doomemacs/themes][doom-themes]] - Modern color themes (using doom-one)
@@ -78,6 +81,9 @@ My configuration follows the philosophy of [[https://github.com/technomancy/bett
 
 **** Lisp
 - [[https://www.emacswiki.org/emacs/ParEdit][paredit]] - Structural editing for Lisp and Scheme
+
+**** Markdown
+- [[https://jblevins.org/projects/markdown-mode/][markdown-mode]] - Markdown editing with pandoc support
 
 **** Docker
 - [[https://github.com/spotify/dockerfile-mode][dockerfile-mode]] - Dockerfile syntax
