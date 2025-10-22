@@ -285,6 +285,17 @@
 (use-package docker
   :commands docker)
 
+;;; YAML
+(use-package yaml-ts-mode
+  :ensure nil
+  :mode "\\.ya?ml\\'"
+  :hook (yaml-ts-mode . display-line-numbers-mode)
+  :config
+  (add-to-list 'treesit-language-source-alist
+               '(yaml "https://github.com/tree-sitter-grammars/tree-sitter-yaml"))
+  (unless (treesit-language-available-p 'yaml)
+    (treesit-install-language-grammar 'yaml)))
+
 ;;; Document Formats
 ;; EPUB reader
 (use-package nov
