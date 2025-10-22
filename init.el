@@ -247,6 +247,29 @@
   (unless (treesit-language-available-p 'tsx)
     (treesit-install-language-grammar 'tsx)))
 
+;; Eglot configuration for Deno
+(defclass eglot-deno (eglot-lsp-server) ()
+  "A custom class for deno lsp.")
+
+(cl-defmethod eglot-initialization-options ((server eglot-deno))
+  "Passes through required deno initialization options for SERVER."
+  (list
+   :enable t
+   :unstable t
+   :typescript (list
+                :inlayHints (list
+                             :variableTypes (list :enabled t)
+                             :parameterTypes (list :enabled t)))))
+
+(defun my/eglot-server-for-ts-js (&optional _interactive)
+  "Return Deno LSP if deno.json exists, otherwise typescript-language-server."
+  (if (and (project-current)
+           (file-exists-p (expand-file-name "deno.json" (project-root (project-current)))))
+      '(eglot-deno "deno" "lsp")
+    '("typescript-language-server" "--stdio")))
+
+(add-to-list 'eglot-server-programs '((js-mode typescript-mode js-ts-mode typescript-ts-mode tsx-ts-mode) . my/eglot-server-for-ts-js))
+
 ;;; Ruby
 (use-package inf-ruby
   :commands inf-ruby
