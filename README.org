@@ -159,7 +159,7 @@ Inside the treemacs buffer:
 
 ** Community Resources
 - http://emacslife.com/
-- http://planet.emacsen.org/
+- http://planet.emacslife.org/
 - http://orgmode.org/
 
 ** Configuration Examples
