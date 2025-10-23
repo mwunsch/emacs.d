@@ -58,6 +58,12 @@
   (add-hook 'visual-line-mode-hook #'visual-fill-column-for-vline)
   :hook ((visual-line-mode . display-fill-column-indicator-mode)))
 
+;; Ediff configuration
+(use-package ediff
+  :ensure nil
+  :custom
+  (ediff-window-setup-function 'ediff-setup-windows-plain))
+
 ;; Discover keybindings as you type
 (use-package which-key
   :config (which-key-mode))
