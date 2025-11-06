@@ -15,6 +15,7 @@ url
 smex-items
 custom.el
 history
+ielm-history.eld
 transient
 tramp
 tree-sitter/
