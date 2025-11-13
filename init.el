@@ -88,9 +88,12 @@
 ;;; Appearance & Theme
 ;;; ============================================================================
 
-;; Font configuration (SF Mono if available)
-(when (member "SF Mono" (font-family-list))
-  (set-face-attribute 'default nil :family "SF Mono" :height 124))
+;; Font configuration (JetBrains Mono with ligature support, fallback to SF Mono)
+(cond
+ ((member "JetBrains Mono" (font-family-list))
+  (set-face-attribute 'default nil :family "JetBrains Mono" :height 124))
+ ((member "SF Mono" (font-family-list))
+  (set-face-attribute 'default nil :family "SF Mono" :height 124)))
 
 ;; Doom theme for modern aesthetics
 (use-package doom-themes
@@ -111,6 +114,19 @@
 ;; Show search match count in mode line
 (use-package anzu
   :config (global-anzu-mode 1))
+
+;; Ligature support for macOS Emacs
+;; Enables programming ligatures (like -> => != etc.) when using a compatible font
+(use-package mac-ligature
+  :ensure nil  ; Local package, don't try to install from MELPA
+  :load-path "lisp"
+  :config
+  ;; Optional: customize ligatures for specific modes
+  ;; (setq mac-ligature-ligatures-for-modes
+  ;;       '((prog-mode . ("=>" "->" "!=" ">=" "<=" "..." "::"))))
+  (global-mac-ligature-mode 1))
+  ;; Alternative: enable only in programming modes via hook
+  ;; :hook (prog-mode . mac-ligature-mode))
 
 ;;; ============================================================================
 ;;; Project & Version Control
