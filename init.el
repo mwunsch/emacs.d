@@ -216,8 +216,15 @@
 (use-package vterm
   :commands (vterm))
 
+;; Emulate A Terminal, in a region, in a buffer and in Eshell
 (use-package eat
-  :commands (eat eat-other-window))
+  :commands (eat eat-other-window)
+  :config
+  ;; Compile terminfo on macOS to fix backspace and other key handling
+  ;; The terminfo databases shipped with eat are compiled on Linux and don't
+  ;; work properly on macOS (e.g., backspace shows as characters instead of deleting)
+  (when (eq system-type 'darwin)
+    (eat-compile-terminfo)))
 
 ;; Claude Code IDE integration
 ;; Key binding: C-c C-'
