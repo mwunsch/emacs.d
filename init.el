@@ -91,9 +91,9 @@
 ;; Font configuration (JetBrains Mono with ligature support, fallback to SF Mono)
 (cond
  ((member "JetBrains Mono" (font-family-list))
-  (set-face-attribute 'default nil :family "JetBrains Mono" :height 124))
+  (set-face-attribute 'default nil :family "JetBrains Mono" :height 142))
  ((member "SF Mono" (font-family-list))
-  (set-face-attribute 'default nil :family "SF Mono" :height 124)))
+  (set-face-attribute 'default nil :family "SF Mono" :height 142)))
 
 ;; Doom theme for modern aesthetics
 (use-package doom-themes
