@@ -59,8 +59,7 @@
 (use-package visual-fill-column
   :config
   (setq visual-fill-column-enable-sensible-window-split t)
-  (add-hook 'visual-line-mode-hook #'visual-fill-column-for-vline)
-  :hook ((visual-line-mode . display-fill-column-indicator-mode)))
+  (add-hook 'visual-line-mode-hook #'visual-fill-column-for-vline))
 
 ;; Discover keybindings as you type
 (use-package which-key
@@ -98,7 +97,7 @@
 ;; Doom theme for modern aesthetics
 (use-package doom-themes
   :config
-  (load-theme 'doom-one t)
+  (load-theme 'doom-tokyo-night t)
   (doom-themes-visual-bell-config)
   (doom-themes-org-config))
 
