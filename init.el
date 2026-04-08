@@ -310,6 +310,45 @@
 (use-package yari
   :commands yari)
 
+;;; Elixir/Erlang
+;; Uses built-in tree-sitter modes for Elixir and HEEx templates
+;; Eglot provides LSP features (requires elixir-ls or lexical installed)
+(use-package elixir-ts-mode
+  :ensure nil
+  :mode (("\\.ex\\'" . elixir-ts-mode)
+         ("\\.exs\\'" . elixir-ts-mode)
+         ("mix\\.lock" . elixir-ts-mode))
+  :config
+  (dolist (grammar '((elixir "https://github.com/elixir-lang/tree-sitter-elixir")
+                     (heex "https://github.com/phoenixframework/tree-sitter-heex")))
+    (add-to-list 'treesit-language-source-alist grammar)
+    (unless (treesit-language-available-p (car grammar))
+      (treesit-install-language-grammar (car grammar)))))
+
+(use-package heex-ts-mode
+  :ensure nil
+  :mode "\\.heex\\'")
+
+;; Erlang/OTP
+(use-package erlang
+  :mode (("\\.erl\\'" . erlang-mode)
+         ("\\.hrl\\'" . erlang-mode))
+  :config
+  (require 'treesit)
+  (add-to-list 'treesit-language-source-alist
+               '(erlang "https://github.com/WhatsApp/tree-sitter-erlang"))
+  (unless (treesit-language-available-p 'erlang)
+    (treesit-install-language-grammar 'erlang)))
+
+;; Mix build tool integration
+(use-package mix
+  :hook ((elixir-ts-mode . mix-minor-mode)))
+
+;; Interactive Elixir REPL
+(use-package inf-elixir
+  :commands (inf-elixir inf-elixir-project inf-elixir-send-line inf-elixir-send-region inf-elixir-send-buffer)
+  :hook (elixir-ts-mode . inf-elixir-minor-mode))
+
 ;;; Docker
 (use-package dockerfile-mode)
 
